@@ -6,6 +6,8 @@ import Main from '../../pages/main/main';
 import MainPageEmpty from '../../pages/main-page-empty/main-page-empty';
 import Room from '../../pages/room/room';
 import RoomNoAuth from '../../pages/room-no-auth/room-no-auth';
+import PrivateRoute from '../../pages/private-rout/private-rout';
+import {AppRoute, AuthorizationStatus} from '../../const';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
@@ -18,17 +20,28 @@ function App({suggestionsAmount}: MainPageProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Main suggestionsAmount={suggestionsAmount} />} />
-        <Route path="favorites" element={<FavoritesPage />} />
-        <Route path="favorites-empty" element={<FavoritesEmptyPage />} />
-        <Route path="login" element={<Login />} />
-        <Route path="main-page-empty" element={<MainPageEmpty />} />
-        <Route path="/offer/:id" element={<Room />} />
-        <Route path="room-no-auth" element={<RoomNoAuth />} />
+        <Route path={AppRoute.Root} element={<Main suggestionsAmount={suggestionsAmount} />} />
+        <Route path={AppRoute.Login} element={<Login />} />
+
+        <Route
+          path={AppRoute.Favorites}
+          element={
+            <PrivateRoute
+              authorizationStatus={AuthorizationStatus.NoAuth}
+            >
+              <FavoritesPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route path={AppRoute.Room} element={<Room />} />
         <Route path="*" element={<PageNotFound />} />
+
+        <Route path={AppRoute.FavoritesEmpty} element={<FavoritesEmptyPage />} />
+        <Route path={AppRoute.MainPageEmpty} element={<MainPageEmpty />} />
+        <Route path={AppRoute.RoomNoAuth} element={<RoomNoAuth />} />
       </Routes>
     </BrowserRouter>
-
   );
 }
 
