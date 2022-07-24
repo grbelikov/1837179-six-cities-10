@@ -4,7 +4,7 @@ type MainPageProps = {
   suggestionsAmount: number;
 }
 
-function MainPage({suggestionsAmount}: MainPageProps): JSX.Element {
+function Main({suggestionsAmount}: MainPageProps): JSX.Element {
   return (
 
     <html lang="en">
@@ -146,4 +146,4 @@ function MainPage({suggestionsAmount}: MainPageProps): JSX.Element {
   );
 }
 
-export default MainPage;
+export default Main;

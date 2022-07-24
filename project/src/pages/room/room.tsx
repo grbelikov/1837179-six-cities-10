@@ -1,4 +1,4 @@
-function RentRoomAuth(): JSX.Element {
+function Room(): JSX.Element {
   return (
 
   // <head>
@@ -352,4 +352,4 @@ function RentRoomAuth(): JSX.Element {
   );
 }
 
-export default RentRoomAuth;
+export default Room;
