@@ -1,10 +1,13 @@
-import OneCardSuggestion from '../../components/one-card-suggestion';
+import ListSuggestions from '../../pages/list-suggestions/list-suggestions';
+import {OfferType} from '../../types/offer';
+import {Link} from 'react-router-dom';
 
 type MainPageProps = {
   suggestionsAmount: number;
+  offers: OfferType;
 }
 
-function Main({suggestionsAmount}: MainPageProps): JSX.Element {
+function Main({suggestionsAmount, offers}: MainPageProps): JSX.Element {
   return (
 
     <html lang="en">
@@ -30,9 +33,9 @@ function Main({suggestionsAmount}: MainPageProps): JSX.Element {
             <div className="container">
               <div className="header__wrapper">
                 <div className="header__left">
-                  <a className="header__logo-link header__logo-link--active" href="/#">
+                  <Link to='/' className="header__logo-link header__logo-link--active">
                     <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-                  </a>
+                  </Link>
                 </div>
                 <nav className="header__nav">
                   <ul className="header__nav-list">
@@ -125,13 +128,7 @@ function Main({suggestionsAmount}: MainPageProps): JSX.Element {
                     </ul>
                   </form>
                   <div className="cities__places-list places__list tabs__content">
-
-                    <OneCardSuggestion />
-                    <OneCardSuggestion />
-                    <OneCardSuggestion />
-                    <OneCardSuggestion />
-                    <OneCardSuggestion />
-
+                    <ListSuggestions offers={offers}/>
                   </div>
                 </section>
                 <div className="cities__right-section">

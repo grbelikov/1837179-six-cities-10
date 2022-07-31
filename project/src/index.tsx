@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
+import {offers} from './mocks/offers';
 
 const Setting = {
   SUGGESTIONS_AMOUNT: 123,
@@ -14,6 +15,7 @@ root.render(
   <React.StrictMode>
     <App
       suggestionsAmount = {Setting.SUGGESTIONS_AMOUNT}
+      offers = {offers[0]}
     />
   </React.StrictMode>,
 );
