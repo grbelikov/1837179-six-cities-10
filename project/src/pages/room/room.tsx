@@ -2,12 +2,12 @@ import FormReview from '../../components/form-review';
 import {OfferType} from '../../types/offer';
 
 type RoomProps = {
-  offers: OfferType;
+  offers: OfferType[];
 };
 
 function Room(props: RoomProps): JSX.Element {
   const {offers} = props;
-  const {picture, price, description} = offers;
+  const {picture, price, description} = offers[0];
 
   return (
 

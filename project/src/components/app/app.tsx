@@ -15,7 +15,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 type MainPageProps = {
   suggestionsAmount: number;
-  offers: OfferType;
+  offers: OfferType[];
 }
 
 function App({suggestionsAmount, offers}: MainPageProps): JSX.Element {

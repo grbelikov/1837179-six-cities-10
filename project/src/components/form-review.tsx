@@ -1,13 +1,11 @@
-import {useState} from 'react';
+import {ChangeEvent, useState} from 'react';
 
 function FormReview(): JSX.Element {
   const [formData, setFormData] = useState({
     commentArea: '',
   });
 
-
-  // не могу понять какой тип сделать для обьекта евт
-  const fieldChangeHandle = (evt) => {
+  const fieldChangeHandle = (evt: ChangeEvent<HTMLTextAreaElement>) => {
     const {name, value} = evt.target;
     setFormData({...formData, [name]: value});
   };

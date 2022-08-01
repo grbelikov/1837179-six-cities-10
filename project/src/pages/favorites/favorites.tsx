@@ -1,11 +1,11 @@
 import {OfferType} from '../../types/offer';
 
 type FavoritePageProps = {
-  offers: OfferType;
+  offers: OfferType[];
 }
 
 function FavoritesPage({offers}: FavoritePageProps): JSX.Element {
-  const {picture, price, description} = offers;
+  const {picture, price, description} = offers[0];
 
   return (
 

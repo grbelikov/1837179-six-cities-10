@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <App
       suggestionsAmount = {Setting.SUGGESTIONS_AMOUNT}
-      offers = {offers[0]}
+      offers = {offers}
     />
   </React.StrictMode>,
 );
