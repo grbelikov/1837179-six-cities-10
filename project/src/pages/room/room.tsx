@@ -1,4 +1,14 @@
-function Room(): JSX.Element {
+import FormReview from '../../components/form-review';
+import {OfferType} from '../../types/offer';
+
+type RoomProps = {
+  offers: OfferType[];
+};
+
+function Room(props: RoomProps): JSX.Element {
+  const {offers} = props;
+  const {picture, price, description} = offers[0];
+
   return (
 
   // <head>
@@ -20,7 +30,7 @@ function Room(): JSX.Element {
             <div className="header__wrapper">
               <div className="header__left">
                 <a className="header__logo-link" href="main.html">
-                  <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
+                  <img className="header__logo" src={picture} alt="6 cities logo" width="81" height="41" />
                 </a>
               </div>
               <nav className="header__nav">
@@ -49,22 +59,22 @@ function Room(): JSX.Element {
             <div className="property__gallery-container container">
               <div className="property__gallery">
                 <div className="property__image-wrapper">
-                  <img className="property__image" src="img/room.jpg" alt="studio" />
+                  <img className="property__image" src={picture} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-01.jpg" alt="studio" />
+                  <img className="property__image" src={picture} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-02.jpg" alt="studio" />
+                  <img className="property__image" src={picture} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-03.jpg" alt="studio" />
+                  <img className="property__image" src={picture} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src="img/studio-01.jpg" alt="studio" />
+                  <img className="property__image" src={picture} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-01.jpg" alt="studio" />
+                  <img className="property__image" src={picture} alt="studio" />
                 </div>
               </div>
             </div>
@@ -75,7 +85,7 @@ function Room(): JSX.Element {
                 </div>
                 <div className="property__name-wrapper">
                   <h1 className="property__name">
-                  Beautiful &amp; luxurious studio at great location
+                    {description}
                   </h1>
                   <button className="property__bookmark-button button" type="button">
                     <svg className="property__bookmark-icon" width="31" height="33">
@@ -103,7 +113,7 @@ function Room(): JSX.Element {
                   </li>
                 </ul>
                 <div className="property__price">
-                  <b className="property__price-value">&euro;120</b>
+                  <b className="property__price-value">&euro;{price}</b>
                   <span className="property__price-text">&nbsp;night</span>
                 </div>
                 <div className="property__inside">
@@ -189,52 +199,7 @@ function Room(): JSX.Element {
                       </div>
                     </li>
                   </ul>
-                  <form className="reviews__form form" action="#" method="post" />
-                  {/* <label className="reviews__label form__label" for="review">Your review</label>
-                  <div className="reviews__rating-form form__rating">
-                    <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" />
-                    <label for="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
-                      <svg className="form__star-image" width="37" height="33">
-                        <use xlinkHref="#icon-star"></use>
-                      </svg>
-                    </label> */}
-
-                  {/* <input className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio" />
-                    <label for="4-stars" className="reviews__rating-label form__rating-label" title="good">
-                      <svg className="form__star-image" width="37" height="33">
-                        <use xlinkHref="#icon-star"></use>
-                      </svg>
-                    </label> */}
-
-                  {/* <input className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio">
-                    <label for="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
-                      <svg className="form__star-image" width="37" height="33">
-                        <use xlinkHref="#icon-star"></use>
-                      </svg>
-                    </label> */}
-
-                  {/* <input className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio">
-                    <label for="2-stars" className="reviews__rating-label form__rating-label" title="badly">
-                      <svg className="form__star-image" width="37" height="33">
-                        <use xlinkHref="#icon-star"></use>
-                      </svg>
-                    </label> */}
-
-                  <input className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio" />
-                  {/* <label for="1-star" className="reviews__rating-label form__rating-label" title="terribly">
-                      <svg className="form__star-image" width="37" height="33">
-                        <use xlinkHhref="#icon-star"></use>
-                      </svg>
-                    </label> */}
-                  <div />
-                  <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved"></textarea>
-                  <div className="reviews__button-wrapper">
-                    <p className="reviews__help">
-                      To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
-                    </p>
-                    <button className="reviews__submit form__submit button" type="submit">Submit</button>
-                  </div>
-                  <form />
+                  <FormReview />
                 </section>
               </div>
             </div>
@@ -348,7 +313,6 @@ function Room(): JSX.Element {
         </main>
       </div>
     </body>
-
   );
 }
 

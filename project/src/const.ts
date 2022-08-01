@@ -3,7 +3,6 @@ export enum AppRoute {
   Login = '/login',
   Favorites = '/favorites',
   Room = '/offer/:id',
-  // to delete later
   FavoritesEmpty = '/favorites-empty',
   MainPageEmpty = '/main-page-empty',
   RoomNoAuth = '/room-no-auth',
