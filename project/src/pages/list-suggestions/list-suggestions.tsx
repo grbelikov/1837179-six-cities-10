@@ -1,5 +1,5 @@
 import {OfferType} from '../../types/offer';
-import OneCardSuggestion from '../../components/one-card-suggestion';
+import OneCardSuggestion from '../../components/one-card-suggestion/one-card-suggestion';
 
 type ListSuggestionsProps = {
   offers: OfferType[];

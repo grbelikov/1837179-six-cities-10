@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {OfferType} from '../types/offer';
+import {OfferType} from '../../types/offer';
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 
