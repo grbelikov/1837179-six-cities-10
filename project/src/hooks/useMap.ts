@@ -9,13 +9,13 @@ function useMap(
   const [map, setMap] = useState<Map | null>(null);
 
   useEffect(() => {
-    if (mapRef.current !== null && map === null) {
+    if (mapRef.current !== null) {
       const instance = new Map(mapRef.current, {
         center: {
           lat: cityPoints.lat,
           lng: cityPoints.lng
         },
-        zoom: 10
+        zoom: cityPoints.zoom
       });
 
       const layer = new TileLayer(
@@ -29,8 +29,12 @@ function useMap(
       instance.addLayer(layer);
 
       setMap(instance);
+      return () => {
+        instance.remove();
+        setMap(null);
+      };
     }
-  }, [mapRef, map, cityPoints]);
+  }, [mapRef, cityPoints]);
 
   return map;
 }

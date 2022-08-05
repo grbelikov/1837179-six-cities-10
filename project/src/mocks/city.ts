@@ -1,8 +1,8 @@
 import {City} from '../types/city';
 
 export const cityPoints: City = {
-  title: 'Нью-Йорк',
-  lat: 40.835292,
-  lng: -73.916236,
-  zoom: 10
+  title: 'Amsterdam',
+  lat: 52.3676,
+  lng: 4.9041,
+  zoom: 12
 };

@@ -2,7 +2,6 @@ import ListSuggestions from '../../pages/list-suggestions/list-suggestions';
 import {OfferType} from '../../types/offer';
 import {Link} from 'react-router-dom';
 import Map from '../../components/map/map';
-import List from '../../components/list/list';
 import {City, Point, Points} from '../../types/city';
 import {useState} from 'react';
 
@@ -14,15 +13,9 @@ type MainPageProps = {
 }
 
 function Main({suggestionsAmount, offers, points, cityPoints}: MainPageProps): JSX.Element {
-  const [selectedPoint, setSelectedPoint] = useState<Point | undefined>(
+  const [selectedPoint] = useState<Point | undefined>(
     undefined
   );
-
-  const onListItemHover = (listItemName: string) => {
-    const currentPoint = points.find((point) => point.title === listItemName);
-
-    setSelectedPoint(currentPoint);
-  };
 
   return (
     <div className="page page--gray page--main">
@@ -129,7 +122,6 @@ function Main({suggestionsAmount, offers, points, cityPoints}: MainPageProps): J
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                <List points={points} onListItemHover={onListItemHover}/>
                 <Map cityPoints={cityPoints} points={points} selectedPoint={selectedPoint}/>
               </section>
             </div>
