@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import {offers} from './mocks/offers';
+import {cityPoints} from './mocks/city';
+import {points} from './mocks/points';
 
 const Setting = {
   SUGGESTIONS_AMOUNT: 123,
@@ -16,6 +18,8 @@ root.render(
     <App
       suggestionsAmount = {Setting.SUGGESTIONS_AMOUNT}
       offers = {offers}
+      points={points}
+      cityPoints={cityPoints}
     />
   </React.StrictMode>,
 );

@@ -1,13 +1,22 @@
 import ListSuggestions from '../../pages/list-suggestions/list-suggestions';
 import {OfferType} from '../../types/offer';
 import {Link} from 'react-router-dom';
+import Map from '../../components/map/map';
+import {City, Point, Points} from '../../types/city';
+import {useState} from 'react';
 
 type MainPageProps = {
   suggestionsAmount: number;
   offers: OfferType[];
+  points: Points;
+  cityPoints: City;
 }
 
-function Main({suggestionsAmount, offers}: MainPageProps): JSX.Element {
+function Main({suggestionsAmount, offers, points, cityPoints}: MainPageProps): JSX.Element {
+  const [selectedPoint] = useState<Point | undefined>(
+    undefined
+  );
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -85,8 +94,8 @@ function Main({suggestionsAmount, offers}: MainPageProps): JSX.Element {
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
 
-                {/* как пофиксить табиндекс? линтер ругается. ниже я просто удалил его */}
-                {/* <span className="places__sorting-type" tabIndex="0"> */}
+                <span className="places__sorting-type" tabIndex={0}></span>
+
                 <span className="places__sorting-type" >
 
                     Popular
@@ -96,11 +105,10 @@ function Main({suggestionsAmount, offers}: MainPageProps): JSX.Element {
                 </span>
                 <ul className="places__options places__options--custom places__options--opened">
 
-                  {/* как пофиксить табиндекс? линтер ругается. ниже я просто удалил его */}
-                  {/* <li className="places__option places__option--active" tabIndex="0">Popular</li>
-                      <li className="places__option" tabIndex="0">Price: low to high</li>
-                      <li className="places__option" tabIndex="0">Price: high to low</li>
-                      <li className="places__option" tabIndex="0">Top rated first</li> */}
+                  <li className="places__option places__option--active" tabIndex={0}>Popular</li>
+                  <li className="places__option" tabIndex={0}>Price: low to high</li>
+                  <li className="places__option" tabIndex={0}>Price: high to low</li>
+                  <li className="places__option" tabIndex={0}>Top rated first</li>
 
                   <li className="places__option places__option--active" >Popular</li>
                   <li className="places__option" >Price: low to high</li>
@@ -113,7 +121,9 @@ function Main({suggestionsAmount, offers}: MainPageProps): JSX.Element {
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map cityPoints={cityPoints} points={points} selectedPoint={selectedPoint}/>
+              </section>
             </div>
           </div>
         </div>
