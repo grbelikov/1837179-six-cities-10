@@ -8,7 +8,7 @@ type RoomProps = {
 function Room(props: RoomProps): JSX.Element {
 
   const {offers} = props;
-  const {picture, price, description} = offers[0];
+  const {images, price, description} = offers[0];
 
   return (
     <body>
@@ -32,7 +32,7 @@ function Room(props: RoomProps): JSX.Element {
             <div className="header__wrapper">
               <div className="header__left">
                 <Link to='/' className="header__logo-link" >
-                  <img className="header__logo" src={picture} alt="6 cities logo" width="81" height="41" />
+                  <img className="header__logo" src={images[0]} alt="6 cities logo" width="81" height="41" />
                 </Link>
               </div>
               <nav className="header__nav">
@@ -61,22 +61,22 @@ function Room(props: RoomProps): JSX.Element {
             <div className="property__gallery-container container">
               <div className="property__gallery">
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={picture} alt="studio" />
+                  <img className="property__image" src={images[1]} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={picture} alt="studio" />
+                  <img className="property__image" src={images[2]} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={picture} alt="studio" />
+                  <img className="property__image" src={images[3]} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={picture} alt="studio" />
+                  <img className="property__image" src={images[4]} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={picture} alt="studio" />
+                  <img className="property__image" src={images[5]} alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={picture} alt="studio" />
+                  <img className="property__image" src={images[6]} alt="studio" />
                 </div>
               </div>
             </div>
