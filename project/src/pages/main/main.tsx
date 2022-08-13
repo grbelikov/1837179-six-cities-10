@@ -1,10 +1,11 @@
-import ListSuggestions from '../../pages/list-suggestions/list-suggestions';
+// import ListSuggestions from '../../pages/list-suggestions/list-suggestions';
 import {OfferType} from '../../types/offer';
 import {Link} from 'react-router-dom';
 import Map from '../../components/map/map';
 import {City, Point, Points} from '../../types/city';
 import {useState} from 'react';
 import {LocationList} from './locations-list';
+import {SuggestionsList} from './suggestions-list';
 
 type MainPageProps = {
   suggestionsAmount: number;
@@ -52,9 +53,7 @@ function Main({suggestionsAmount, offers, points, cityPoints}: MainPageProps): J
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          <section className="locations container">
-            <LocationList />
-          </section>
+          <LocationList />
         </div>
         <div className="cities">
           <div className="cities__places-container container">
@@ -87,7 +86,7 @@ function Main({suggestionsAmount, offers, points, cityPoints}: MainPageProps): J
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <ListSuggestions offers={offers}/>
+                <SuggestionsList />
               </div>
             </section>
             <div className="cities__right-section">
