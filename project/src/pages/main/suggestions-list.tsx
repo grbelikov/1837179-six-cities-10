@@ -1,18 +1,9 @@
 import {offers} from '../../mocks/offers';
 import Suggestion from './suggestion';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../store';
 import {useDispatch} from 'react-redux';
 import {fillRentList, countSuggestions} from '../../store/action';
-
-
-function getActiveCity(state: RootState) {
-  return state.city;
-}
-
-function getSuggestions(state: RootState) {
-  return state.offersList;
-}
+import {getActiveCity, getSuggestions} from '../../store/get-from-store';
 
 export function SuggestionsList() {
   const activeCity = useSelector(getActiveCity);

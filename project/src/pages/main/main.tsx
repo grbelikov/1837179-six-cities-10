@@ -5,19 +5,11 @@ import {useState} from 'react';
 import {LocationList} from './locations-list';
 import {SuggestionsList} from './suggestions-list';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../store';
+import {getSuggestionsAmount, getActiveCity} from '../../store/get-from-store';
 
 type MainPageProps = {
   points: Points;
   cityPoints: City;
-}
-
-function getSuggestionsAmount(state: RootState) {
-  return state.amountSuggestions;
-}
-
-function getActiveCity(state: RootState) {
-  return state.city;
 }
 
 function Main({points, cityPoints}: MainPageProps): JSX.Element {

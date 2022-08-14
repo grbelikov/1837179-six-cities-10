@@ -1,9 +1,9 @@
 import {useDispatch} from 'react-redux';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../store';
 import {City} from '../../store/cities-setting';
 import {MouseEvent} from 'react';
 import {changeCity} from '../../store/action';
+import {getActiveCity} from '../../store/get-from-store';
 
 type LocationItemProps = {
   city: City,
@@ -11,10 +11,6 @@ type LocationItemProps = {
 
 function computeCss(activeFlag: boolean) {
   return `locations__item-link tabs__item ${activeFlag ? 'tabs__item--active' : ''}`;
-}
-
-function getActiveCity(state: RootState) {
-  return state.city;
 }
 
 export function LocationItem(props: LocationItemProps) {
