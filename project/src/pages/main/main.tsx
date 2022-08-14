@@ -1,23 +1,31 @@
-// import ListSuggestions from '../../pages/list-suggestions/list-suggestions';
-import {OfferType} from '../../types/offer';
 import {Link} from 'react-router-dom';
 import Map from '../../components/map/map';
 import {City, Point, Points} from '../../types/city';
 import {useState} from 'react';
 import {LocationList} from './locations-list';
 import {SuggestionsList} from './suggestions-list';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../store';
 
 type MainPageProps = {
-  suggestionsAmount: number;
-  offers: OfferType[];
   points: Points;
   cityPoints: City;
 }
 
-function Main({suggestionsAmount, offers, points, cityPoints}: MainPageProps): JSX.Element {
+function getSuggestionsAmount(state: RootState) {
+  return state.amountSuggestions;
+}
+
+function getActiveCity(state: RootState) {
+  return state.city;
+}
+
+function Main({points, cityPoints}: MainPageProps): JSX.Element {
   const [selectedPoint] = useState<Point | undefined>(
     undefined
   );
+  const amountSuggestions = useSelector(getSuggestionsAmount);
+  const activeCity = useSelector(getActiveCity);
 
   return (
     <div className="page page--gray page--main">
@@ -53,13 +61,15 @@ function Main({suggestionsAmount, offers, points, cityPoints}: MainPageProps): J
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          <LocationList />
+          <section className="locations container">
+            <LocationList />
+          </section>
         </div>
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{suggestionsAmount} places to stay in Amsterdam</b>
+              <b className="places__found">{amountSuggestions} places to stay in {activeCity}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
 

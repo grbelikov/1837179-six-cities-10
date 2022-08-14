@@ -2,16 +2,29 @@ import {offers} from '../../mocks/offers';
 import Suggestion from './suggestion';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../store';
+import {useDispatch} from 'react-redux';
+import {fillRentList, countSuggestions} from '../../store/action';
+
 
 function getActiveCity(state: RootState) {
   return state.city;
 }
 
+function getSuggestions(state: RootState) {
+  return state.offersList;
+}
+
 export function SuggestionsList() {
   const activeCity = useSelector(getActiveCity);
-  // const offersList = useSelector(getOffersList);
+  const dispatch = useDispatch();
 
-  const activeSuggestions = offers.filter((offer) => offer.city.name === activeCity);
+  dispatch(fillRentList(offers));
+
+  const offersStore = useSelector(getSuggestions);
+
+  const activeSuggestions = offersStore.filter((offer) => offer.city.name === activeCity);
+
+  dispatch(countSuggestions(activeSuggestions.length));
 
   // Почему если в ретерн вернуть переменную suggestionsList, то будет ошибка?
   // const suggestionsList = activeSuggestions.map((suggestion) =>
