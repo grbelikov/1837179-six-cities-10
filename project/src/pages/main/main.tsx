@@ -1,18 +1,13 @@
 import {Link} from 'react-router-dom';
 import Map from '../../components/map/map';
-import {City, Point, Points} from '../../types/city';
+import {Point} from '../../types/city';
 import {useState} from 'react';
 import {LocationList} from './locations-list';
 import {SuggestionsList} from './suggestions-list';
 import {useSelector} from 'react-redux';
 import {getSuggestionsAmount, getActiveCity} from '../../store/get-from-store';
 
-type MainPageProps = {
-  points: Points;
-  cityPoints: City;
-}
-
-function Main({points, cityPoints}: MainPageProps): JSX.Element {
+function Main(): JSX.Element {
   const [selectedPoint] = useState<Point | undefined>(
     undefined
   );
@@ -93,7 +88,7 @@ function Main({points, cityPoints}: MainPageProps): JSX.Element {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                <Map cityPoints={cityPoints} points={points} selectedPoint={selectedPoint}/>
+                <Map selectedPoint={selectedPoint}/>
               </section>
             </div>
           </div>
