@@ -7,6 +7,7 @@ import {SuggestionsList} from './suggestions-list';
 import {useSelector} from 'react-redux';
 import {getSuggestionsAmount, getActiveCity} from '../../store/get-from-store';
 
+
 function Main(): JSX.Element {
   const [selectedPoint] = useState<Point | undefined>(
     undefined

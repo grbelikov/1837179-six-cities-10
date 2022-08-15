@@ -8,14 +8,9 @@ import Room from '../../pages/room/room';
 import RoomNoAuth from '../../pages/room-no-auth/room-no-auth';
 import PrivateRoute from '../../pages/private-rout/private-rout';
 import {AppRoute, AuthorizationStatus} from '../../const';
-import {OfferType} from '../../types/offer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-type AppProps = {
-  offers: OfferType[];
-}
-
-function App({offers}: AppProps): JSX.Element {
+function App(): JSX.Element {
 
   return (
     <BrowserRouter>
@@ -32,12 +27,12 @@ function App({offers}: AppProps): JSX.Element {
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.Auth}
             >
-              <FavoritesPage offers={offers} />
+              <FavoritesPage />
             </PrivateRoute>
           }
         />
 
-        <Route path={AppRoute.Room} element={<Room offers={offers}/>} />
+        <Route path={AppRoute.Room} element={<Room />} />
         <Route path="*" element={<PageNotFound />} />
 
         <Route path={AppRoute.FavoritesEmpty} element={<FavoritesEmptyPage />} />

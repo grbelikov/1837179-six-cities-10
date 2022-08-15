@@ -1,20 +1,13 @@
 import {Link} from 'react-router-dom';
-import {OfferType} from '../../types/offer';
 import FormReview from '../../components/form-review/form-review';
 
-type RoomProps = {
-  offers: OfferType[];
-};
-function Room(props: RoomProps): JSX.Element {
-
-  const {offers} = props;
-  const {images, price, description} = offers[0];
+function Room(): JSX.Element {
 
   return (
     <body>
       <div style={{ display: 'none' }}>
         <svg xmlns="http://www.w3.org/2000/svg">
-          <symbol id="icon-arrow-select" viewBox="0 0 7 4">
+          <symbol viewBox="0 0 7 4">
             <path fillRule="evenodd" clipRule="evenodd" d="M0 0l3.5 2.813L7 0v1.084L3.5 4 0 1.084V0z" />
           </symbol>
           <symbol id="icon-bookmark" viewBox="0 0 17 18">
@@ -32,7 +25,7 @@ function Room(props: RoomProps): JSX.Element {
             <div className="header__wrapper">
               <div className="header__left">
                 <Link to='/' className="header__logo-link" >
-                  <img className="header__logo" src={images[0]} alt="6 cities logo" width="81" height="41" />
+                  <img className="header__logo" src='' alt="6 cities logo" width="81" height="41" />
                 </Link>
               </div>
               <nav className="header__nav">
@@ -61,22 +54,22 @@ function Room(props: RoomProps): JSX.Element {
             <div className="property__gallery-container container">
               <div className="property__gallery">
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={images[1]} alt="studio" />
+                  <img className="property__image" src='' alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={images[2]} alt="studio" />
+                  <img className="property__image" src='' alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={images[3]} alt="studio" />
+                  <img className="property__image" src='' alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={images[4]} alt="studio" />
+                  <img className="property__image" src='' alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={images[5]} alt="studio" />
+                  <img className="property__image" src='' alt="studio" />
                 </div>
                 <div className="property__image-wrapper">
-                  <img className="property__image" src={images[6]} alt="studio" />
+                  <img className="property__image" src='' alt="studio" />
                 </div>
               </div>
             </div>
@@ -87,7 +80,7 @@ function Room(props: RoomProps): JSX.Element {
                 </div>
                 <div className="property__name-wrapper">
                   <h1 className="property__name">
-                    {description}
+                    description
                   </h1>
                   <button className="property__bookmark-button button" type="button">
                     <svg className="property__bookmark-icon" width="31" height="33">
@@ -115,7 +108,7 @@ function Room(props: RoomProps): JSX.Element {
                   </li>
                 </ul>
                 <div className="property__price">
-                  <b className="property__price-value">&euro;{price}</b>
+                  <b className="property__price-value">&euro;price</b>
                   <span className="property__price-text">&nbsp;night</span>
                 </div>
                 <div className="property__inside">
