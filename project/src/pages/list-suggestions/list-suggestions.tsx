@@ -11,6 +11,8 @@ function ListSuggestions({offers}: ListSuggestionsProps): JSX.Element {
       <OneCardSuggestion offers={offers[0]}/>
       <OneCardSuggestion offers={offers[1]}/>
       <OneCardSuggestion offers={offers[2]}/>
+      <OneCardSuggestion offers={offers[3]}/>
+      <OneCardSuggestion offers={offers[4]}/>
     </>
   );
 }

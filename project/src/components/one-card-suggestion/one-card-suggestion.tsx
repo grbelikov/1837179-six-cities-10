@@ -10,7 +10,7 @@ type OneCardSuggestionProps = {
 
 function OneCardSuggestion(props: OneCardSuggestionProps): JSX.Element {
   const {offers} = props;
-  const {id, picture, price, description} = offers;
+  const {id, images, price, description} = offers;
 
   const [activeCardId, setActiveCardId] = useState(0);
 
@@ -28,7 +28,7 @@ function OneCardSuggestion(props: OneCardSuggestionProps): JSX.Element {
       </div>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <Link to='/offer/:id' className="header__logo-link header__logo-link--active">
-          <img className="place-card__image" src={picture} width="260" height="200" alt="Place" />
+          <img className="place-card__image" src={images[0]} width="260" height="200" alt="Place" />
         </Link>
       </div>
       <div className="place-card__info">

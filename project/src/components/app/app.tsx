@@ -10,28 +10,18 @@ import PrivateRoute from '../../pages/private-rout/private-rout';
 import {AppRoute, AuthorizationStatus} from '../../const';
 import {OfferType} from '../../types/offer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {City, Points} from '../../types/city';
-
 
 type AppProps = {
-  suggestionsAmount: number;
   offers: OfferType[];
-  points: Points;
-  cityPoints: City;
 }
 
-function App({suggestionsAmount, offers, points, cityPoints}: AppProps): JSX.Element {
+function App({offers}: AppProps): JSX.Element {
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.Root} element={
-          <Main
-            offers={offers}
-            suggestionsAmount={suggestionsAmount}
-            points={points}
-            cityPoints={cityPoints}
-          />
+          <Main />
         }
         />
         <Route path={AppRoute.Login} element={<Login />} />

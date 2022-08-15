@@ -5,7 +5,7 @@ type FavoritePageProps = {
 }
 
 function FavoritesPage({offers}: FavoritePageProps): JSX.Element {
-  const {picture, price, description} = offers[0];
+  const {images, price, description} = offers[0];
 
   return (
     <body>
@@ -29,7 +29,7 @@ function FavoritesPage({offers}: FavoritePageProps): JSX.Element {
             <div className="header__wrapper">
               <div className="header__left">
                 <a className="header__logo-link" href="main.html">
-                  <img className="header__logo" src={picture} alt="6 cities logo" width="81" height="41" />
+                  <img className="header__logo" src={images[0]} alt="6 cities logo" width="81" height="41" />
                 </a>
               </div>
               <nav className="header__nav">
@@ -73,7 +73,7 @@ function FavoritesPage({offers}: FavoritePageProps): JSX.Element {
                       </div>
                       <div className="favorites__image-wrapper place-card__image-wrapper">
                         <a href="/#">
-                          <img className="place-card__image" src={picture} width="150" height="110" alt="Place" />
+                          <img className="place-card__image" src={images[1]} width="150" height="110" alt="Place" />
                         </a>
                       </div>
                       <div className="favorites__card-info place-card__info">
@@ -105,7 +105,7 @@ function FavoritesPage({offers}: FavoritePageProps): JSX.Element {
                     <article className="favorites__card place-card">
                       <div className="favorites__image-wrapper place-card__image-wrapper">
                         <a href="/#">
-                          <img className="place-card__image" src={picture} width="150" height="110" alt="Place" />
+                          <img className="place-card__image" src={images[2]} width="150" height="110" alt="Place" />
                         </a>
                       </div>
                       <div className="favorites__card-info place-card__info">
@@ -148,7 +148,7 @@ function FavoritesPage({offers}: FavoritePageProps): JSX.Element {
                     <article className="favorites__card place-card">
                       <div className="favorites__image-wrapper place-card__image-wrapper">
                         <a href="/#">
-                          <img className="place-card__image" src={picture} width="150" height="110" alt="Place" />
+                          <img className="place-card__image" src={images[3]} width="150" height="110" alt="Place" />
                         </a>
                       </div>
                       <div className="favorites__card-info place-card__info">
@@ -184,7 +184,7 @@ function FavoritesPage({offers}: FavoritePageProps): JSX.Element {
         </main>
         <footer className="footer container">
           <a className="footer__logo-link" href="main.html">
-            <img className="footer__logo" src={picture} alt="6 cities logo" width="64" height="33" />
+            <img className="footer__logo" src={images[4]} alt="6 cities logo" width="64" height="33" />
           </a>
         </footer>
       </div>
