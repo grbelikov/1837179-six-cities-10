@@ -53,7 +53,7 @@ function Map(props: MapProps): JSX.Element {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, selectedPoint]);
 
-  return <div style={{height: '500px'}} ref={mapRef}></div>;
+  return <div style={{height: '658px', width: '512px'}} ref={mapRef}></div>;
 }
 
 export default Map;
