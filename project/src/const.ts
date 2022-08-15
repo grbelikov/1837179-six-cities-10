@@ -1,4 +1,4 @@
-export enum AppRoute {
+export enum APIRoute {
   Root = '/',
   Login = '/login',
   Favorites = '/favorites',
@@ -7,6 +7,8 @@ export enum AppRoute {
   MainPageEmpty = '/main-page-empty',
   RoomNoAuth = '/room-no-auth',
 }
+
+export const TIMEOUT_SHOW_ERROR = 1000;
 
 export enum AuthorizationStatus {
   Auth = 'AUTH',

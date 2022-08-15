@@ -9,5 +9,5 @@ export function getActiveCity(state: RootState) {
 }
 
 export function getSuggestions(state: RootState) {
-  return state.offersList;
+  return state.offersListMock;
 }

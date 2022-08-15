@@ -1,4 +1,4 @@
-import {offers} from '../../mocks/offers';
+// import {offers} from '../../mocks/offers';
 import Suggestion from './suggestion';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
