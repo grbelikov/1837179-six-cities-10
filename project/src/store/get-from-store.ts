@@ -11,3 +11,7 @@ export function getActiveCity(state: RootState) {
 export function getSuggestions(state: RootState) {
   return state.offersListMock;
 }
+
+export function getSuggestionsNotMock(state: RootState) {
+  return state.offersList;
+}

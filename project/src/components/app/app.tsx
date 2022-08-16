@@ -7,7 +7,7 @@ import MainPageEmpty from '../../pages/main-page-empty/main-page-empty';
 import Room from '../../pages/room/room';
 import RoomNoAuth from '../../pages/room-no-auth/room-no-auth';
 import PrivateRoute from '../../pages/private-rout/private-rout';
-import {APIRoute, AuthorizationStatus} from '../../const';
+import {APPRoute, AuthorizationStatus} from '../../const';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App(): JSX.Element {
@@ -15,14 +15,14 @@ function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={APIRoute.Root} element={
+        <Route path={APPRoute.Root} element={
           <Main />
         }
         />
-        <Route path={APIRoute.Login} element={<Login />} />
+        <Route path={APPRoute.Login} element={<Login />} />
 
         <Route
-          path={APIRoute.Favorites}
+          path={APPRoute.Favorites}
           element={
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.Auth}
@@ -32,12 +32,12 @@ function App(): JSX.Element {
           }
         />
 
-        <Route path={APIRoute.Room} element={<Room />} />
+        <Route path={APPRoute.Room} element={<Room />} />
         <Route path="*" element={<PageNotFound />} />
 
-        <Route path={APIRoute.FavoritesEmpty} element={<FavoritesEmptyPage />} />
-        <Route path={APIRoute.MainPageEmpty} element={<MainPageEmpty />} />
-        <Route path={APIRoute.RoomNoAuth} element={<RoomNoAuth />} />
+        <Route path={APPRoute.FavoritesEmpty} element={<FavoritesEmptyPage />} />
+        <Route path={APPRoute.MainPageEmpty} element={<MainPageEmpty />} />
+        <Route path={APPRoute.RoomNoAuth} element={<RoomNoAuth />} />
       </Routes>
     </BrowserRouter>
   );

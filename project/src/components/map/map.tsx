@@ -5,6 +5,8 @@ import {Point} from '../../types/city';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 import 'leaflet/dist/leaflet.css';
 import {getActiveCity, getSuggestions} from '../../store/get-from-store';
+// import {getSuggestionsNotMock} from '../../store/get-from-store';
+
 import {useSelector} from 'react-redux';
 
 type MapProps = {
@@ -27,8 +29,9 @@ function Map(props: MapProps): JSX.Element {
   const {selectedPoint} = props;
 
   const activeCity = useSelector(getActiveCity);
-  const offersStore = useSelector(getSuggestions);
-  const activeSuggestions = offersStore.filter((offer) => offer.city.name === activeCity);
+  const offersStoreNotMock = useSelector(getSuggestions);
+
+  const activeSuggestions = offersStoreNotMock.filter((offer) => offer.city.name === activeCity);
 
   const mapRef = useRef(null);
   const map = useMap(mapRef, activeSuggestions[0].city.location);

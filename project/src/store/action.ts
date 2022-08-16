@@ -10,3 +10,4 @@ export const countSuggestions = createAction <number>('main/countSuggestions');
 export const loadSuggestions = createAction <OfferType[]>('data/loadSuggestions');
 export const requareAuthorization = createAction <AuthorizationStatus>('user/requareAuthorization');
 export const setError = createAction <string | null>('city/setError');
+export const setDataLoaderStatus = createAction <boolean>('data/loading');

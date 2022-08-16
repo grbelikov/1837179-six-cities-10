@@ -1,8 +1,8 @@
-/* eslint-disable no-console */
 import axios, {AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 import {getToken} from './token';
 import {StatusCodes} from 'http-status-codes';
 import {processErrorHandle} from './process-error-handle';
+import {BASE_URL, REQUEST_TIMEOUT} from '../const';
 
 const StatusCodeMapping: Record<number, boolean> = {
   [StatusCodes.BAD_REQUEST]: true,
@@ -12,8 +12,6 @@ const StatusCodeMapping: Record<number, boolean> = {
 
 const shouldDisplayError = (response: AxiosResponse) => !!StatusCodeMapping[response.status];
 
-const BASE_URL = 'https://10.react.pages.academy/six-cities';
-const REQUEST_TIMEOUT = 5000;
 
 export const createAPI = (): AxiosInstance => {
   const api = axios.create({
@@ -32,7 +30,6 @@ export const createAPI = (): AxiosInstance => {
       return config;
     },
   );
-
 
   api.interceptors.response.use(
     (response) => response,

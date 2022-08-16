@@ -1,5 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {changeCity, fillRentList, countSuggestions, loadSuggestions, requareAuthorization} from './action';
+import {changeCity, fillRentList, countSuggestions,
+  loadSuggestions, requareAuthorization} from './action';
 import {City} from './cities-setting';
 import {OfferType} from '../types/offer';
 import {AuthorizationStatus} from '../const';
@@ -11,6 +12,7 @@ const initialState = {
   amountSuggestions: 0 as number,
   authStatus: 'UNKNOWN' as AuthorizationStatus,
   error: '' as string | null,
+  isDataLoaded: false as boolean,
 } as const;
 
 const reducer = createReducer(initialState, (builder) => {

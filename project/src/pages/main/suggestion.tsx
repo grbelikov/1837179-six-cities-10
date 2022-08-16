@@ -1,5 +1,4 @@
 import {OfferType} from '../../types/offer';
-// import {Link} from 'react-router-dom';
 
 type SuggestionProps = {
   activeSuggestion: OfferType;
