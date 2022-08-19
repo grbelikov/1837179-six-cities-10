@@ -1,0 +1,8 @@
+.preloader {
+  top: 30px;
+  right: 30px;
+  padding: 10px;
+  background-color: rgb(255, 93, 93);
+  color: white;
+  border-radius: 5px;
+}

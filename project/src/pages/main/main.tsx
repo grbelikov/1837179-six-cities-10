@@ -6,6 +6,8 @@ import {LocationList} from './locations-list';
 import {SuggestionsList} from './suggestions-list';
 import {useSelector} from 'react-redux';
 import {getSuggestionsAmount, getActiveCity} from '../../store/get-from-store';
+import {getSuggestionsNotMock} from '../../store/get-from-store';
+import Preloader from '../../components/preloader/preloader';
 
 
 function Main(): JSX.Element {
@@ -14,6 +16,9 @@ function Main(): JSX.Element {
   );
   const amountSuggestions = useSelector(getSuggestionsAmount);
   const activeCity = useSelector(getActiveCity);
+
+  const offersStoreNotMock = useSelector(getSuggestionsNotMock);
+
 
   return (
     <div className="page page--gray page--main">
@@ -71,12 +76,6 @@ function Main(): JSX.Element {
                   </svg>
                 </span>
                 <ul className="places__options places__options--custom places__options--opened">
-
-                  <li className="places__option places__option--active" tabIndex={0}>Popular</li>
-                  <li className="places__option" tabIndex={0}>Price: low to high</li>
-                  <li className="places__option" tabIndex={0}>Price: high to low</li>
-                  <li className="places__option" tabIndex={0}>Top rated first</li>
-
                   <li className="places__option places__option--active" >Popular</li>
                   <li className="places__option" >Price: low to high</li>
                   <li className="places__option" >Price: high to low</li>
@@ -84,7 +83,7 @@ function Main(): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <SuggestionsList />
+                {offersStoreNotMock.length === 0 ? <SuggestionsList /> : <Preloader />}
               </div>
             </section>
             <div className="cities__right-section">
