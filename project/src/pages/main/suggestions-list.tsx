@@ -1,22 +1,27 @@
-import {offers} from '../../mocks/offers';
+// import {offers} from '../../mocks/offers';
 import Suggestion from './suggestion';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
-import {fillRentList, countSuggestions} from '../../store/action';
-import {getActiveCity, getSuggestions} from '../../store/get-from-store';
+import {countSuggestions} from '../../store/action';
+import {getActiveCity} from '../../store/get-from-store';
 
 // import {getSuggestionsNotMock} from '../../store/get-from-store';
 
-export function SuggestionsList() {
+
+export function SuggestionsList(props: any) {
+  const {suggestions} = props;
+  console.log('12121212', suggestions);
+
+
   const activeCity = useSelector(getActiveCity);
   const dispatch = useDispatch();
 
-  dispatch(fillRentList(offers));
+  // dispatch(fillRentList(offers));
 
-  const offersStoreMock = useSelector(getSuggestions);
+  // const offersStoreMock = useSelector(getSuggestions);
   // const offersStoreNotMock = useSelector(getSuggestionsNotMock);
 
-  const activeSuggestions = offersStoreMock.filter((offer) => offer.city.name === activeCity);
+  const activeSuggestions = suggestions.filter((offer) => offer.city.name === activeCity);
 
   dispatch(countSuggestions(activeSuggestions.length));
 

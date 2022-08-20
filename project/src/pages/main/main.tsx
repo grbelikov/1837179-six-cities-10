@@ -83,12 +83,12 @@ function Main(): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {offersStoreNotMock.length === 0 ? <SuggestionsList /> : <Preloader />}
+                {offersStoreNotMock.length === 0 ? <SuggestionsList offersStoreNotMock={offersStoreNotMock}/> : <Preloader />}
               </div>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                <Map selectedPoint={selectedPoint}/>
+                {/* <Map selectedPoint={selectedPoint}/> */}
               </section>
             </div>
           </div>
