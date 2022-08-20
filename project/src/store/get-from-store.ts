@@ -15,3 +15,13 @@ export function getSuggestions(state: RootState) {
 export function getSuggestionsNotMock(state: RootState) {
   return state.offersList;
 }
+
+export function showLoader(state: RootState) {
+  return state.offersList.length === 0;
+}
+
+// подумать что б возвращать не массив оферов а айди
+export function filterOffers(state: RootState) {
+  const activeCity = getActiveCity(state);
+  return state.offersList.filter((offer) => offer.city.name === activeCity);
+}

@@ -5,8 +5,7 @@ import {useState} from 'react';
 import {LocationList} from './locations-list';
 import {SuggestionsList} from './suggestions-list';
 import {useSelector} from 'react-redux';
-import {getSuggestionsAmount, getActiveCity} from '../../store/get-from-store';
-import {getSuggestionsNotMock} from '../../store/get-from-store';
+import {getSuggestionsAmount, getActiveCity, showLoader} from '../../store/get-from-store';
 import Preloader from '../../components/preloader/preloader';
 
 
@@ -17,7 +16,7 @@ function Main(): JSX.Element {
   const amountSuggestions = useSelector(getSuggestionsAmount);
   const activeCity = useSelector(getActiveCity);
 
-  const offersStoreNotMock = useSelector(getSuggestionsNotMock);
+  const offersStoreNotMock = useSelector(showLoader);
 
 
   return (
@@ -83,7 +82,7 @@ function Main(): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {offersStoreNotMock.length === 0 ? <SuggestionsList /> : <Preloader />}
+                {offersStoreNotMock ? <Preloader /> : <SuggestionsList />}
               </div>
             </section>
             <div className="cities__right-section">

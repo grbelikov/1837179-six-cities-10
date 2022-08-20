@@ -4,7 +4,7 @@ import useMap from '../../hooks/useMap';
 import {Point} from '../../types/city';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 import 'leaflet/dist/leaflet.css';
-import {getActiveCity, getSuggestions} from '../../store/get-from-store';
+import {filterOffers} from '../../store/get-from-store';
 // import {getSuggestionsNotMock} from '../../store/get-from-store';
 
 import {useSelector} from 'react-redux';
@@ -28,33 +28,33 @@ const currentCustomIcon = new Icon({
 function Map(props: MapProps): JSX.Element {
   const {selectedPoint} = props;
 
-  const activeCity = useSelector(getActiveCity);
-  const offersStoreNotMock = useSelector(getSuggestions);
-
-  const activeSuggestions = offersStoreNotMock.filter((offer) => offer.city.name === activeCity);
+  const activeSuggestions = useSelector(filterOffers);
 
   const mapRef = useRef(null);
-  const map = useMap(mapRef, activeSuggestions[0].city.location);
+  const map = useMap(mapRef, activeSuggestions[0]);
 
   useEffect(() => {
-    if (map) {
+
+    if (map !== null && mapRef.current !== null) {
       activeSuggestions.forEach((suggestion) => {
         const marker = new Marker({
           lat: suggestion.location.latitude,
           lng: suggestion.location.longitude
         });
 
+        const isCurrent = selectedPoint !== undefined && suggestion.title === selectedPoint.title;
+        console.log({mapRef, map, 'fdfddf': mapRef.current===null});
+
         marker
           .setIcon(
-            selectedPoint !== undefined && suggestion.title === selectedPoint.title
+            isCurrent
               ? currentCustomIcon
               : defaultCustomIcon
           )
           .addTo(map);
       });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map, selectedPoint]);
+  }, [activeSuggestions, map, selectedPoint]);
 
   return <div style={{height: '658px', width: '512px'}} ref={mapRef}></div>;
 }
